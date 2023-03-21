@@ -1,323 +1,98 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./custom.css";
+import HomeAboutUSImg from "./assets/about.jpg";
+import HeroImg from "./assets/hero-img.svg";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import client1 from "./assets/img/clients/client-1.png";
+import client2 from "./assets/img/clients/client-2.png";
+import client3 from "./assets/img/clients/client-3.png";
+import client4 from "./assets/img/clients/client-4.png";
+import client5 from "./assets/img/clients/client-5.png";
+import client6 from "./assets/img/clients/client-6.png";
+import client7 from "./assets/img/clients/client-7.png";
+import client8 from "./assets/img/clients/client-8.png";
+import testimonialimg1 from "./assets/img/testimonials/testimonials-1.jpg";
+import testimonialimg2 from "./assets/img/testimonials/testimonials-2.jpg";
+import testimonialimg3 from "./assets/img/testimonials/testimonials-3.jpg";
+import testimonialimg4 from "./assets/img/testimonials/testimonials-4.jpg";
+import testimonialimg5 from "./assets/img/testimonials/testimonials-5.jpg";
+import Slider from "react-slick";
 function App() {
-  // /**
-  //  * Template Name: Impact - v1.2.0
-  //  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
-  //  * Author: BootstrapMade.com
-  //  * License: https://bootstrapmade.com/license/
-  //  */
-  // document.addEventListener("DOMContentLoaded", () => {
-  //   "use strict";
+  var ClientSliderSettings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 5000,
+    autoplaySpeed: 5000,
+    cssEase: "linear",
+    pauseOnHover: false,
 
-  //   /**
-  //    * Preloader
-  //    */
-  //   const preloader = document.querySelector("#preloader");
-  //   if (preloader) {
-  //     window.addEventListener("load", () => {
-  //       preloader.remove();
-  //     });
-  //   }
-
-  //   /**
-  //    * Sticky Header on Scroll
-  //    */
-  //   const selectHeader = document.querySelector("#header");
-  //   if (selectHeader) {
-  //     let headerOffset = selectHeader.offsetTop;
-  //     let nextElement = selectHeader.nextElementSibling;
-
-  //     const headerFixed = () => {
-  //       if (headerOffset - window.scrollY <= 0) {
-  //         selectHeader.classList.add("sticked");
-  //         if (nextElement) nextElement.classList.add("sticked-header-offset");
-  //       } else {
-  //         selectHeader.classList.remove("sticked");
-  //         if (nextElement)
-  //           nextElement.classList.remove("sticked-header-offset");
-  //       }
-  //     };
-  //     window.addEventListener("load", headerFixed);
-  //     document.addEventListener("scroll", headerFixed);
-  //   }
-
-  //   /**
-  //    * Navbar links active state on scroll
-  //    */
-  //   let navbarlinks = document.querySelectorAll("#navbar a");
-
-  //   function navbarlinksActive() {
-  //     navbarlinks.forEach((navbarlink) => {
-  //       if (!navbarlink.hash) return;
-
-  //       let section = document.querySelector(navbarlink.hash);
-  //       if (!section) return;
-
-  //       let position = window.scrollY + 200;
-
-  //       if (
-  //         position >= section.offsetTop &&
-  //         position <= section.offsetTop + section.offsetHeight
-  //       ) {
-  //         navbarlink.classList.add("active");
-  //       } else {
-  //         navbarlink.classList.remove("active");
-  //       }
-  //     });
-  //   }
-  //   window.addEventListener("load", navbarlinksActive);
-  //   document.addEventListener("scroll", navbarlinksActive);
-
-  //   /**
-  //    * Mobile nav toggle
-  //    */
-  //   const mobileNavShow = document.querySelector(".mobile-nav-show");
-  //   const mobileNavHide = document.querySelector(".mobile-nav-hide");
-
-  //   document.querySelectorAll(".mobile-nav-toggle").forEach((el) => {
-  //     el.addEventListener("click", function (event) {
-  //       event.preventDefault();
-  //       mobileNavToogle();
-  //     });
-  //   });
-
-  //   function mobileNavToogle() {
-  //     document.querySelector("body").classList.toggle("mobile-nav-active");
-  //     mobileNavShow.classList.toggle("d-none");
-  //     mobileNavHide.classList.toggle("d-none");
-  //   }
-
-  //   /**
-  //    * Hide mobile nav on same-page/hash links
-  //    */
-  //   document.querySelectorAll("#navbar a").forEach((navbarlink) => {
-  //     if (!navbarlink.hash) return;
-
-  //     let section = document.querySelector(navbarlink.hash);
-  //     if (!section) return;
-
-  //     navbarlink.addEventListener("click", () => {
-  //       if (document.querySelector(".mobile-nav-active")) {
-  //         mobileNavToogle();
-  //       }
-  //     });
-  //   });
-
-  //   /**
-  //    * Toggle mobile nav dropdowns
-  //    */
-  //   const navDropdowns = document.querySelectorAll(".navbar .dropdown > a");
-
-  //   navDropdowns.forEach((el) => {
-  //     el.addEventListener("click", function (event) {
-  //       if (document.querySelector(".mobile-nav-active")) {
-  //         event.preventDefault();
-  //         this.classList.toggle("active");
-  //         this.nextElementSibling.classList.toggle("dropdown-active");
-
-  //         let dropDownIndicator = this.querySelector(".dropdown-indicator");
-  //         dropDownIndicator.classList.toggle("bi-chevron-up");
-  //         dropDownIndicator.classList.toggle("bi-chevron-down");
-  //       }
-  //     });
-  //   });
-
-  //   /**
-  //    * Initiate glightbox
-  //    */
-  //   const glightbox = GLightbox({
-  //     selector: ".glightbox",
-  //   });
-
-  //   /**
-  //    * Scroll top button
-  //    */
-  //   const scrollTop = document.querySelector(".scroll-top");
-  //   if (scrollTop) {
-  //     const togglescrollTop = function () {
-  //       window.scrollY > 100
-  //         ? scrollTop.classList.add("active")
-  //         : scrollTop.classList.remove("active");
-  //     };
-  //     window.addEventListener("load", togglescrollTop);
-  //     document.addEventListener("scroll", togglescrollTop);
-  //     scrollTop.addEventListener(
-  //       "click",
-  //       window.scrollTo({
-  //         top: 0,
-  //         behavior: "smooth",
-  //       })
-  //     );
-  //   }
-
-  //   /**
-  //    * Initiate Pure Counter
-  //    */
-  //   new PureCounter();
-
-  //   /**
-  //    * Clients Slider
-  //    */
-  //   new Swiper(".clients-slider", {
-  //     speed: 400,
-  //     loop: true,
-  //     autoplay: {
-  //       delay: 5000,
-  //       disableOnInteraction: false,
-  //     },
-  //     slidesPerView: "auto",
-  //     pagination: {
-  //       el: ".swiper-pagination",
-  //       type: "bullets",
-  //       clickable: true,
-  //     },
-  //     breakpoints: {
-  //       320: {
-  //         slidesPerView: 2,
-  //         spaceBetween: 40,
-  //       },
-  //       480: {
-  //         slidesPerView: 3,
-  //         spaceBetween: 60,
-  //       },
-  //       640: {
-  //         slidesPerView: 4,
-  //         spaceBetween: 80,
-  //       },
-  //       992: {
-  //         slidesPerView: 6,
-  //         spaceBetween: 120,
-  //       },
-  //     },
-  //   });
-
-  //   /**
-  //    * Init swiper slider with 1 slide at once in desktop view
-  //    */
-  //   new Swiper(".slides-1", {
-  //     speed: 600,
-  //     loop: true,
-  //     autoplay: {
-  //       delay: 5000,
-  //       disableOnInteraction: false,
-  //     },
-  //     slidesPerView: "auto",
-  //     pagination: {
-  //       el: ".swiper-pagination",
-  //       type: "bullets",
-  //       clickable: true,
-  //     },
-  //     navigation: {
-  //       nextEl: ".swiper-button-next",
-  //       prevEl: ".swiper-button-prev",
-  //     },
-  //   });
-
-  //   /**
-  //    * Init swiper slider with 3 slides at once in desktop view
-  //    */
-  //   new Swiper(".slides-3", {
-  //     speed: 600,
-  //     loop: true,
-  //     autoplay: {
-  //       delay: 5000,
-  //       disableOnInteraction: false,
-  //     },
-  //     slidesPerView: "auto",
-  //     pagination: {
-  //       el: ".swiper-pagination",
-  //       type: "bullets",
-  //       clickable: true,
-  //     },
-  //     navigation: {
-  //       nextEl: ".swiper-button-next",
-  //       prevEl: ".swiper-button-prev",
-  //     },
-  //     breakpoints: {
-  //       320: {
-  //         slidesPerView: 1,
-  //         spaceBetween: 40,
-  //       },
-
-  //       1200: {
-  //         slidesPerView: 3,
-  //       },
-  //     },
-  //   });
-
-  //   /**
-  //    * Porfolio isotope and filter
-  //    */
-  //   let portfolionIsotope = document.querySelector(".portfolio-isotope");
-
-  //   if (portfolionIsotope) {
-  //     let portfolioFilter = portfolionIsotope.getAttribute(
-  //       "data-portfolio-filter"
-  //     )
-  //       ? portfolionIsotope.getAttribute("data-portfolio-filter")
-  //       : "*";
-  //     let portfolioLayout = portfolionIsotope.getAttribute(
-  //       "data-portfolio-layout"
-  //     )
-  //       ? portfolionIsotope.getAttribute("data-portfolio-layout")
-  //       : "masonry";
-  //     let portfolioSort = portfolionIsotope.getAttribute("data-portfolio-sort")
-  //       ? portfolionIsotope.getAttribute("data-portfolio-sort")
-  //       : "original-order";
-
-  //     window.addEventListener("load", () => {
-  //       let portfolioIsotope = new Isotope(
-  //         document.querySelector(".portfolio-container"),
-  //         {
-  //           itemSelector: ".portfolio-item",
-  //           layoutMode: portfolioLayout,
-  //           filter: portfolioFilter,
-  //           sortBy: portfolioSort,
-  //         }
-  //       );
-
-  //       let menuFilters = document.querySelectorAll(
-  //         ".portfolio-isotope .portfolio-flters li"
-  //       );
-  //       menuFilters.forEach(function (el) {
-  //         el.addEventListener(
-  //           "click",
-  //           function () {
-  //             document
-  //               .querySelector(
-  //                 ".portfolio-isotope .portfolio-flters .filter-active"
-  //               )
-  //               .classList.remove("filter-active");
-  //             this.classList.add("filter-active");
-  //             portfolioIsotope.arrange({
-  //               filter: this.getAttribute("data-filter"),
-  //             });
-  //             if (typeof aos_init === "function") {
-  //               aos_init();
-  //             }
-  //           },
-  //           false
-  //         );
-  //       });
-  //     });
-  //   }
-
-  //   /**
-  //    * Animation on scroll function and init
-  //    */
-  //   function aos_init() {
-  //     AOS.init({
-  //       duration: 1000,
-  //       easing: "ease-in-out",
-  //       once: true,
-  //       mirror: false,
-  //     });
-  //   }
-  //   window.addEventListener("load", () => {
-  //     aos_init();
-  //   });
-  // });
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  var FeedbackSliderSettings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 5000,
+    autoplaySpeed: 5000,
+    cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <div>
       {/* Start Header */}
@@ -388,18 +163,11 @@ function App() {
                 <a href="#about" class="btn-get-started">
                   Explore Our Courses
                 </a>
-                <a
-                  href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-                  class="glightbox btn-watch-video d-flex align-items-center"
-                >
-                  <i class="bi bi-play-circle"></i>
-                  <span>Watch Video</span>
-                </a>
               </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2">
               <img
-                src="assets/img/hero-img.svg"
+                src={HeroImg}
                 class="img-fluid"
                 alt=""
                 data-aos="zoom-out"
@@ -501,7 +269,7 @@ function App() {
             <div class="row gy-4">
               <div class="col-lg-6">
                 <img
-                  src="assets/img/about.jpg"
+                  src={HomeAboutUSImg}
                   class="img-fluid rounded-4 mb-4"
                   alt=""
                 />
@@ -523,7 +291,7 @@ function App() {
                     students' careers off-campus and get them opportunities
                     earlier in time to ensure the best outcome of the courses.
                   </p>
-                  <ul>
+                  {/* <ul>
                     <li>
                       <i class="bi bi-check-circle-fill"></i> Ullamco laboris
                       nisi ut aliquip ex ea commodo consequat.
@@ -538,7 +306,7 @@ function App() {
                       dolor in reprehenderit in voluptate trideta storacalaperda
                       mastiro dolore eu fugiat nulla pariatur.
                     </li>
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
             </div>
@@ -549,61 +317,65 @@ function App() {
           <div class="container" data-aos="zoom-out">
             <div class="clients-slider swiper">
               <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide">
-                  <img
-                    src="assets/img/clients/client-1.png"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="assets/img/clients/client-2.png"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="assets/img/clients/client-3.png"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="assets/img/clients/client-4.png"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="assets/img/clients/client-5.png"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="assets/img/clients/client-6.png"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="assets/img/clients/client-7.png"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="assets/img/clients/client-8.png"
-                    class="img-fluid"
-                    alt=""
-                  />
+                <div>
+                  <Slider {...ClientSliderSettings} arrows={false}>
+                    <div class="swiper-slide">
+                      <img
+                        src={client1}
+                        className="img-fluid clientSliderImg px-3"
+                        alt=""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src={client2}
+                        className="img-fluid clientSliderImg px-3"
+                        alt=""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src={client3}
+                        className="img-fluid clientSliderImg px-3"
+                        alt=""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src={client4}
+                        className="img-fluid clientSliderImg px-3"
+                        alt=""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src={client5}
+                        className="img-fluid clientSliderImg px-3"
+                        alt=""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src={client6}
+                        className="img-fluid clientSliderImg px-3"
+                        alt=""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src={client7}
+                        className="img-fluid clientSliderImg px-3"
+                        alt=""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src={client8}
+                        className="img-fluid clientSliderImg px-3"
+                        alt=""
+                      />
+                    </div>
+                  </Slider>
                 </div>
               </div>
             </div>
@@ -724,7 +496,7 @@ function App() {
           </div>
         </section>
 
-        <section id="stats-counter" class="stats-counter">
+        {/* <section id="stats-counter" class="stats-counter">
           <div class="container" data-aos="fade-up">
             <div class="row gy-4 align-items-center">
               <div class="col-lg-6">
@@ -770,7 +542,7 @@ function App() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section id="testimonials" class="testimonials">
           <div class="container" data-aos="fade-up">
@@ -788,170 +560,172 @@ function App() {
               data-aos-delay="100"
             >
               <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="testimonial-wrap">
-                    <div class="testimonial-item">
-                      <div class="d-flex align-items-center">
-                        <img
-                          src="assets/img/testimonials/testimonials-1.jpg"
-                          class="testimonial-img flex-shrink-0"
-                          alt=""
-                        />
-                        <div>
-                          <h3>Saul Goodman</h3>
-                          <h4>Ceo &amp; Founder</h4>
-                          <div class="stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                <Slider {...FeedbackSliderSettings} arrows={false}>
+                  <div class="swiper-slide">
+                    <div class="testimonial-wrap">
+                      <div class="testimonial-item">
+                        <div class="d-flex align-items-center">
+                          <img
+                            src={testimonialimg1}
+                            class="testimonial-img flex-shrink-0"
+                            alt=""
+                          />
+                          <div>
+                            <h3>Saul Goodman</h3>
+                            <h4>Ceo &amp; Founder</h4>
+                            <div class="stars">
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                            </div>
                           </div>
                         </div>
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                          Proin iaculis purus consequat sem cure digni ssim
+                          donec porttitora entum suscipit rhoncus. Accusantium
+                          quam, ultricies eget id, aliquam eget nibh et. Maecen
+                          aliquam, risus at semper.
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
                       </div>
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        Proin iaculis purus consequat sem cure digni ssim donec
-                        porttitora entum suscipit rhoncus. Accusantium quam,
-                        ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                        risus at semper.
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
                     </div>
                   </div>
-                </div>
 
-                <div class="swiper-slide">
-                  <div class="testimonial-wrap">
-                    <div class="testimonial-item">
-                      <div class="d-flex align-items-center">
-                        <img
-                          src="assets/img/testimonials/testimonials-2.jpg"
-                          class="testimonial-img flex-shrink-0"
-                          alt=""
-                        />
-                        <div>
-                          <h3>Sara Wilsson</h3>
-                          <h4>Designer</h4>
-                          <div class="stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                  <div class="swiper-slide">
+                    <div class="testimonial-wrap">
+                      <div class="testimonial-item">
+                        <div class="d-flex align-items-center">
+                          <img
+                            src={testimonialimg2}
+                            class="testimonial-img flex-shrink-0"
+                            alt=""
+                          />
+                          <div>
+                            <h3>Sara Wilsson</h3>
+                            <h4>Designer</h4>
+                            <div class="stars">
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                            </div>
                           </div>
                         </div>
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                          Export tempor illum tamen malis malis eram quae irure
+                          esse labore quem cillum quid cillum eram malis quorum
+                          velit fore eram velit sunt aliqua noster fugiat irure
+                          amet legam anim culpa.
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
                       </div>
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        Export tempor illum tamen malis malis eram quae irure
-                        esse labore quem cillum quid cillum eram malis quorum
-                        velit fore eram velit sunt aliqua noster fugiat irure
-                        amet legam anim culpa.
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
                     </div>
                   </div>
-                </div>
 
-                <div class="swiper-slide">
-                  <div class="testimonial-wrap">
-                    <div class="testimonial-item">
-                      <div class="d-flex align-items-center">
-                        <img
-                          src="assets/img/testimonials/testimonials-3.jpg"
-                          class="testimonial-img flex-shrink-0"
-                          alt=""
-                        />
-                        <div>
-                          <h3>Jena Karlis</h3>
-                          <h4>Store Owner</h4>
-                          <div class="stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                  <div class="swiper-slide">
+                    <div class="testimonial-wrap">
+                      <div class="testimonial-item">
+                        <div class="d-flex align-items-center">
+                          <img
+                            src={testimonialimg3}
+                            class="testimonial-img flex-shrink-0"
+                            alt=""
+                          />
+                          <div>
+                            <h3>Jena Karlis</h3>
+                            <h4>Store Owner</h4>
+                            <div class="stars">
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                            </div>
                           </div>
                         </div>
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                          Enim nisi quem export duis labore cillum quae magna
+                          enim sint quorum nulla quem veniam duis minim tempor
+                          labore quem eram duis noster aute amet eram fore quis
+                          sint minim.
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
                       </div>
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        Enim nisi quem export duis labore cillum quae magna enim
-                        sint quorum nulla quem veniam duis minim tempor labore
-                        quem eram duis noster aute amet eram fore quis sint
-                        minim.
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
                     </div>
                   </div>
-                </div>
 
-                <div class="swiper-slide">
-                  <div class="testimonial-wrap">
-                    <div class="testimonial-item">
-                      <div class="d-flex align-items-center">
-                        <img
-                          src="assets/img/testimonials/testimonials-4.jpg"
-                          class="testimonial-img flex-shrink-0"
-                          alt=""
-                        />
-                        <div>
-                          <h3>Matt Brandon</h3>
-                          <h4>Freelancer</h4>
-                          <div class="stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                  <div class="swiper-slide">
+                    <div class="testimonial-wrap">
+                      <div class="testimonial-item">
+                        <div class="d-flex align-items-center">
+                          <img
+                            src={testimonialimg4}
+                            class="testimonial-img flex-shrink-0"
+                            alt=""
+                          />
+                          <div>
+                            <h3>Matt Brandon</h3>
+                            <h4>Freelancer</h4>
+                            <div class="stars">
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                            </div>
                           </div>
                         </div>
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                          Fugiat enim eram quae cillum dolore dolor amet nulla
+                          culpa multos export minim fugiat minim velit minim
+                          dolor enim duis veniam ipsum anim magna sunt elit fore
+                          quem dolore.
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
                       </div>
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        Fugiat enim eram quae cillum dolore dolor amet nulla
-                        culpa multos export minim fugiat minim velit minim dolor
-                        enim duis veniam ipsum anim magna sunt elit fore quem
-                        dolore.
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
                     </div>
                   </div>
-                </div>
 
-                <div class="swiper-slide">
-                  <div class="testimonial-wrap">
-                    <div class="testimonial-item">
-                      <div class="d-flex align-items-center">
-                        <img
-                          src="assets/img/testimonials/testimonials-5.jpg"
-                          class="testimonial-img flex-shrink-0"
-                          alt=""
-                        />
-                        <div>
-                          <h3>John Larson</h3>
-                          <h4>Entrepreneur</h4>
-                          <div class="stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                  <div class="swiper-slide">
+                    <div class="testimonial-wrap">
+                      <div class="testimonial-item">
+                        <div class="d-flex align-items-center">
+                          <img
+                            src={testimonialimg5}
+                            class="testimonial-img flex-shrink-0"
+                            alt=""
+                          />
+                          <div>
+                            <h3>John Larson</h3>
+                            <h4>Entrepreneur</h4>
+                            <div class="stars">
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                              <i class="bi bi-star-fill"></i>
+                            </div>
                           </div>
                         </div>
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                          Quis quorum aliqua sint quem legam fore sunt eram
+                          irure aliqua veniam tempor noster veniam enim culpa
+                          labore duis sunt culpa nulla illum cillum fugiat legam
+                          esse veniam culpa fore.
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
                       </div>
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        Quis quorum aliqua sint quem legam fore sunt eram irure
-                        aliqua veniam tempor noster veniam enim culpa labore
-                        duis sunt culpa nulla illum cillum fugiat legam esse
-                        veniam culpa fore.
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
                     </div>
                   </div>
-                </div>
+                </Slider>
               </div>
               <div class="swiper-pagination"></div>
             </div>
