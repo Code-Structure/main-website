@@ -63,8 +63,8 @@ function App() {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 5000,
-    autoplaySpeed: 5000,
+    speed: 9000,
+    autoplaySpeed: 9000,
     cssEase: "linear",
     responsive: [
       {
@@ -156,9 +156,7 @@ function App() {
               <h2 class="mt-0">
                 Crack Your Dream <span>Job.</span>
               </h2>
-              <p>
-                Unlock your coding potential and land your dream job with ZenX.
-              </p>
+              <p>Unlock your coding potential .</p>
               <div class="d-flex justify-content-center justify-content-lg-start">
                 <a href="#about" class="btn-get-started">
                   Explore Our Courses
@@ -277,19 +275,19 @@ function App() {
               <div class="col-lg-6">
                 <div class="content ps-0 ps-lg-5">
                   <p class="fs-5">
-                    ZenX offers the best live training courses in the industry,
-                    in collaboration with industry professionals, for
-                    engineering and management students. Courses are designed to
-                    help students excel in all areas, including improving soft
+                    CodeStructure offers the best live training courses in the
+                    industry, in collaboration with industry professionals, for
+                    students of any background. Courses are designed to help
+                    students excel in all areas, including improving soft
                     skills, technical/hard skills, and networking in the
                     industry with recruiters and hiring managers in order to
                     provide students with opportunities and a head start in
-                    their careers.
+                    their careers. We offer courses on DSA with C++/JAVA,
+                    Frontend Development, Backend Development, Operating
+                    Systems, Database Management, OOPS and much more.
                     <br />
-                    <br />
-                    ZenX has a dedicated Placement cell to take care of
-                    students' careers off-campus and get them opportunities
-                    earlier in time to ensure the best outcome of the courses.
+                    CodeStructure provides all in one package to unlock your
+                    true potential.
                   </p>
                   {/* <ul>
                     <li>
@@ -401,9 +399,8 @@ function App() {
                   </div>
                   <h3>Complete DSA in C++</h3>
                   <p>
-                    Provident nihil minus qui consequatur non omnis maiores. Eos
-                    accusantium minus dolores iure perferendis tempore et
-                    consequatur.
+                    Starting from teaching the C++ language to all the DSA
+                    concepts would be picked up to excel at problem solving.
                   </p>
                   <a href="#" class="readmore stretched-link">
                     Enroll Now <i class="bi bi-arrow-right"></i>
@@ -416,10 +413,10 @@ function App() {
                   <div class="icon">
                     <i class="bi bi-broadcast"></i>
                   </div>
-                  <h3>Frontend Development with React</h3>
+                  <h3>Complete DSA in JAVA</h3>
                   <p>
-                    Ut autem aut autem non a. Sint sint sit facilis nam iusto
-                    sint. Libero corrupti neque eum hic non ut nesciunt dolorem.
+                    Starting from teaching the JAVA language to all the DSA
+                    concepts would be picked up to excel at problem solving.
                   </p>
                   <a href="#" class="readmore stretched-link">
                     Enroll Now <i class="bi bi-arrow-right"></i>
@@ -432,11 +429,11 @@ function App() {
                   <div class="icon">
                     <i class="bi bi-easel"></i>
                   </div>
-                  <h3>Backend Development with NodeJS</h3>
+                  <h3>Frontend Development with ReactJS</h3>
                   <p>
-                    Ut excepturi voluptatem nisi sed. Quidem fuga consequatur.
-                    Minus ea aut. Vel qui id voluptas adipisci eos earum
-                    corrupti.
+                    Become a Pro frontend developer by learning all concepts
+                    from basic. All the way from HTML/CSS/JS and then moving to
+                    React. Also create amazing projects on the go.
                   </p>
                   <a href="#" class="readmore stretched-link">
                     Enroll Now <i class="bi bi-arrow-right"></i>
@@ -449,10 +446,11 @@ function App() {
                   <div class="icon">
                     <i class="bi bi-bounding-box-circles"></i>
                   </div>
-                  <h3>Blockchain Development using Rust/Solana</h3>
+                  <h3>Backend Development with NodeJS</h3>
                   <p>
-                    Non et temporibus minus omnis sed dolor esse consequatur.
-                    Cupiditate sed error ea fuga sit provident adipisci neque.
+                    Become a Pro Backend developer by learning all concepts from
+                    basic. All the way from Javascript, ExpressJS, MongoDB,
+                    API’s, NodeJS. Also create amazing projects on the go.
                   </p>
                   <a href="#" class="readmore stretched-link">
                     Enroll Now <i class="bi bi-arrow-right"></i>
@@ -460,7 +458,7 @@ function App() {
                 </div>
               </div>
 
-              <div class="col-lg-4 col-md-6">
+              {/* <div class="col-lg-4 col-md-6">
                 <div class="service-item position-relative">
                   <div class="icon">
                     <i class="bi bi-calendar4-week"></i>
@@ -491,7 +489,7 @@ function App() {
                     Enroll Now <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -571,7 +569,7 @@ function App() {
                             alt=""
                           />
                           <div>
-                            <h3>Saul Goodman</h3>
+                            <h3>Karan</h3>
                             <h4>Ceo &amp; Founder</h4>
                             <div class="stars">
                               <i class="bi bi-star-fill"></i>
@@ -584,10 +582,10 @@ function App() {
                         </div>
                         <p>
                           <i class="bi bi-quote quote-icon-left"></i>
-                          Proin iaculis purus consequat sem cure digni ssim
-                          donec porttitora entum suscipit rhoncus. Accusantium
-                          quam, ultricies eget id, aliquam eget nibh et. Maecen
-                          aliquam, risus at semper.
+                          This course helped me a lot to understand Data
+                          structures and algorithms from basics to an advanced
+                          level. The course was well mentored and the content
+                          was very well presented. Thank you CodeStructure.
                           <i class="bi bi-quote quote-icon-right"></i>
                         </p>
                       </div>
@@ -604,7 +602,7 @@ function App() {
                             alt=""
                           />
                           <div>
-                            <h3>Sara Wilsson</h3>
+                            <h3>Shivam</h3>
                             <h4>Designer</h4>
                             <div class="stars">
                               <i class="bi bi-star-fill"></i>
@@ -616,11 +614,10 @@ function App() {
                           </div>
                         </div>
                         <p>
-                          <i class="bi bi-quote quote-icon-left"></i>
-                          Export tempor illum tamen malis malis eram quae irure
-                          esse labore quem cillum quid cillum eram malis quorum
-                          velit fore eram velit sunt aliqua noster fugiat irure
-                          amet legam anim culpa.
+                          <i class="bi bi-quote quote-icon-left"></i>I took
+                          Frontend Development course and instructors are
+                          amazing. It’s was a very helpful course. I will surely
+                          recommend it to my friends and colleagues.
                           <i class="bi bi-quote quote-icon-right"></i>
                         </p>
                       </div>
@@ -637,7 +634,7 @@ function App() {
                             alt=""
                           />
                           <div>
-                            <h3>Jena Karlis</h3>
+                            <h3>Sai</h3>
                             <h4>Store Owner</h4>
                             <div class="stars">
                               <i class="bi bi-star-fill"></i>
@@ -650,10 +647,10 @@ function App() {
                         </div>
                         <p>
                           <i class="bi bi-quote quote-icon-left"></i>
-                          Enim nisi quem export duis labore cillum quae magna
-                          enim sint quorum nulla quem veniam duis minim tempor
-                          labore quem eram duis noster aute amet eram fore quis
-                          sint minim.
+                          Best in Industry course with Affordable prices. The
+                          instructors have worked in top MNC’s and have lots of
+                          industry experience. Surely would recommend this
+                          everyone.
                           <i class="bi bi-quote quote-icon-right"></i>
                         </p>
                       </div>
@@ -670,7 +667,7 @@ function App() {
                             alt=""
                           />
                           <div>
-                            <h3>Matt Brandon</h3>
+                            <h3>Sudeep</h3>
                             <h4>Freelancer</h4>
                             <div class="stars">
                               <i class="bi bi-star-fill"></i>
@@ -683,10 +680,13 @@ function App() {
                         </div>
                         <p>
                           <i class="bi bi-quote quote-icon-left"></i>
-                          Fugiat enim eram quae cillum dolore dolor amet nulla
-                          culpa multos export minim fugiat minim velit minim
-                          dolor enim duis veniam ipsum anim magna sunt elit fore
-                          quem dolore.
+                          The tutors featured in the courses on various frontend
+                          subjects are extremely competent, and often from
+                          high-profile and prestigious companies. The courses
+                          are mostly structured pretty well, and the content
+                          tends to be of a professional standard and ready for
+                          production environments, which often isn’t the case
+                          with other sites I’ve used previously.
                           <i class="bi bi-quote quote-icon-right"></i>
                         </p>
                       </div>
@@ -703,7 +703,7 @@ function App() {
                             alt=""
                           />
                           <div>
-                            <h3>John Larson</h3>
+                            <h3>Anshika</h3>
                             <h4>Entrepreneur</h4>
                             <div class="stars">
                               <i class="bi bi-star-fill"></i>
@@ -715,11 +715,13 @@ function App() {
                           </div>
                         </div>
                         <p>
-                          <i class="bi bi-quote quote-icon-left"></i>
-                          Quis quorum aliqua sint quem legam fore sunt eram
-                          irure aliqua veniam tempor noster veniam enim culpa
-                          labore duis sunt culpa nulla illum cillum fugiat legam
-                          esse veniam culpa fore.
+                          <i class="bi bi-quote quote-icon-left"></i>I was able
+                          to develop my coding skills through this course. The
+                          training had industry oriented problems that required
+                          extremely sound logic, but the mentor took his time
+                          explaining every line of code and giving homework
+                          assignments similar to the training problems. Everyone
+                          should take this course, in my opinion.
                           <i class="bi bi-quote quote-icon-right"></i>
                         </p>
                       </div>
@@ -763,8 +765,8 @@ function App() {
                         data-bs-toggle="collapse"
                         data-bs-target="#faq-content-1"
                       >
-                        <span class="num">1.</span>
-                        Non consectetur a erat nam at lectus urna duis?
+                        <span class="num">1.</span>I am not from Computer
+                        Science Field or Tech Background. Am I eligible?{" "}
                       </button>
                     </h3>
                     <div
@@ -773,10 +775,11 @@ function App() {
                       data-bs-parent="#faqlist"
                     >
                       <div class="accordion-body">
-                        Feugiat pretium nibh ipsum consequat. Tempus iaculis
-                        urna id volutpat lacus laoreet non curabitur gravida.
-                        Venenatis lectus magna fringilla urna porttitor rhoncus
-                        dolor purus non.
+                        Yes! All college students, graduates, and working
+                        professionals who are willing to put in the effort to
+                        break into the field of computer science, regardless of
+                        their degree, graduation percentage, or branch, are
+                        eligible for our course.
                       </div>
                     </div>
                   </div>
@@ -790,8 +793,7 @@ function App() {
                         data-bs-target="#faq-content-2"
                       >
                         <span class="num">2.</span>
-                        Feugiat scelerisque varius morbi enim nunc faucibus a
-                        pellentesque?
+                        Why is collaborative learning so important?
                       </button>
                     </h3>
                     <div
@@ -800,12 +802,12 @@ function App() {
                       data-bs-parent="#faqlist"
                     >
                       <div class="accordion-body">
-                        Dolor sit amet consectetur adipiscing elit pellentesque
-                        habitant morbi. Id interdum velit laoreet id donec
-                        ultrices. Fringilla phasellus faucibus scelerisque
-                        eleifend donec pretium. Est pellentesque elit
-                        ullamcorper dignissim. Mauris ultrices eros in cursus
-                        turpis massa tincidunt dui.
+                        Students often learn from each other, and a majority of
+                        learning in an organization is learning – or learning in
+                        the flow of work. It’s important to encourage and
+                        capture organization-wide collaboration for increased
+                        productivity, social learning, and cross-team
+                        communication.
                       </div>
                     </div>
                   </div>
@@ -819,8 +821,8 @@ function App() {
                         data-bs-target="#faq-content-3"
                       >
                         <span class="num">3.</span>
-                        Dolor sit amet consectetur adipiscing elit pellentesque
-                        habitant morbi?
+                        How many mocks, mentorship sessions & live doubt
+                        sessions will I get?** 1.
                       </button>
                     </h3>
                     <div
@@ -829,12 +831,9 @@ function App() {
                       data-bs-parent="#faqlist"
                     >
                       <div class="accordion-body">
-                        Eleifend mi in nulla posuere sollicitudin aliquam
-                        ultrices sagittis orci. Faucibus pulvinar elementum
-                        integer enim. Sem nulla pharetra diam sit amet nisl
-                        suscipit. Rutrum tellus pellentesque eu tincidunt.
-                        Lectus urna duis convallis convallis tellus. Urna
-                        molestie at elementum eu facilisis sed odio morbi quis
+                        You can take 15+ mentorship sessions, mock interviews &
+                        doubt-solving sessions in total. You can ask as many
+                        doubts as you want through our Live Chat Feature :)
                       </div>
                     </div>
                   </div>
@@ -848,8 +847,7 @@ function App() {
                         data-bs-target="#faq-content-4"
                       >
                         <span class="num">4.</span>
-                        Ac odio tempor orci dapibus. Aliquam eleifend mi in
-                        nulla?
+                        Are the sessions live or recorded?
                       </button>
                     </h3>
                     <div
@@ -858,12 +856,11 @@ function App() {
                       data-bs-parent="#faqlist"
                     >
                       <div class="accordion-body">
-                        Dolor sit amet consectetur adipiscing elit pellentesque
-                        habitant morbi. Id interdum velit laoreet id donec
-                        ultrices. Fringilla phasellus faucibus scelerisque
-                        eleifend donec pretium. Est pellentesque elit
-                        ullamcorper dignissim. Mauris ultrices eros in cursus
-                        turpis massa tincidunt dui.
+                        All the sessions are live online classes, which are held
+                        thrice a week. The schedule of sessions (days and
+                        timings) is shared with the students well in advance.
+                        However, if a student is unable to attend a session,
+                        recordings are also made available to all the students.
                       </div>
                     </div>
                   </div>
@@ -877,8 +874,7 @@ function App() {
                         data-bs-target="#faq-content-5"
                       >
                         <span class="num">5.</span>
-                        Tempus quam pellentesque nec nam aliquam sem et tortor
-                        consequat?
+                        Is there an installment option?
                       </button>
                     </h3>
                     <div
@@ -887,11 +883,9 @@ function App() {
                       data-bs-parent="#faqlist"
                     >
                       <div class="accordion-body">
-                        Molestie a iaculis at erat pellentesque adipiscing
-                        commodo. Dignissim suspendisse in est ante in. Nunc vel
-                        risus commodo viverra maecenas accumsan. Sit amet nisl
-                        suscipit adipiscing bibendum est. Purus gravida quis
-                        blandit turpis cursus in
+                        You can request a call back and discuss about the
+                        process of installment fee process with our Academic
+                        Counselors.
                       </div>
                     </div>
                   </div>
