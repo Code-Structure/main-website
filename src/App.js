@@ -1,423 +1,957 @@
+import Slider from "react-slick";
+import { useEffect } from "react";
+import Aos from "aos";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "aos/dist/aos.css";
+import HomeAboutUSImg from "./assets/about.jpg";
+import HeroImg from "./assets/hero-img.svg";
+import client1 from "./assets/img/clients/client-1.png";
+import client2 from "./assets/img/clients/client-2.png";
+import client3 from "./assets/img/clients/client-3.png";
+import client4 from "./assets/img/clients/client-4.png";
+import client5 from "./assets/img/clients/client-5.png";
+import client6 from "./assets/img/clients/client-6.png";
+import client7 from "./assets/img/clients/client-7.png";
+import client8 from "./assets/img/clients/client-8.png";
+import testimonialimg1 from "./assets/img/testimonials/testimonials-1.jpg";
+import testimonialimg2 from "./assets/img/testimonials/testimonials-2.jpg";
+import testimonialimg3 from "./assets/img/testimonials/testimonials-3.jpg";
+import testimonialimg4 from "./assets/img/testimonials/testimonials-4.jpg";
+import testimonialimg5 from "./assets/img/testimonials/testimonials-5.jpg";
 import "./custom.css";
+import Footer from "./components/Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faFacebook,
+  faInstagram,
+  faLinkedin,
+  faSpinner,
+} from "@fortawesome/free-brands-svg-icons";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { Accordion } from "react-bootstrap";
+
 function App() {
-  /**
-   * Template Name: Impact - v1.2.0
-   * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
-   * Author: BootstrapMade.com
-   * License: https://bootstrapmade.com/license/
-   */
-  document.addEventListener("DOMContentLoaded", () => {
-    "use strict";
+  var ClientSliderSettings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 5000,
+    autoplaySpeed: 5000,
+    cssEase: "linear",
+    pauseOnHover: false,
 
-    /**
-     * Preloader
-     */
-    const preloader = document.querySelector("#preloader");
-    if (preloader) {
-      window.addEventListener("load", () => {
-        preloader.remove();
-      });
-    }
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  var FeedbackSliderSettings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 9000,
+    autoplaySpeed: 9000,
+    cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
-    /**
-     * Sticky Header on Scroll
-     */
-    const selectHeader = document.querySelector("#header");
-    if (selectHeader) {
-      let headerOffset = selectHeader.offsetTop;
-      let nextElement = selectHeader.nextElementSibling;
-
-      const headerFixed = () => {
-        if (headerOffset - window.scrollY <= 0) {
-          selectHeader.classList.add("sticked");
-          if (nextElement) nextElement.classList.add("sticked-header-offset");
-        } else {
-          selectHeader.classList.remove("sticked");
-          if (nextElement)
-            nextElement.classList.remove("sticked-header-offset");
-        }
-      };
-      window.addEventListener("load", headerFixed);
-      document.addEventListener("scroll", headerFixed);
-    }
-
-    /**
-     * Navbar links active state on scroll
-     */
-    let navbarlinks = document.querySelectorAll("#navbar a");
-
-    function navbarlinksActive() {
-      navbarlinks.forEach((navbarlink) => {
-        if (!navbarlink.hash) return;
-
-        let section = document.querySelector(navbarlink.hash);
-        if (!section) return;
-
-        let position = window.scrollY + 200;
-
-        if (
-          position >= section.offsetTop &&
-          position <= section.offsetTop + section.offsetHeight
-        ) {
-          navbarlink.classList.add("active");
-        } else {
-          navbarlink.classList.remove("active");
-        }
-      });
-    }
-    window.addEventListener("load", navbarlinksActive);
-    document.addEventListener("scroll", navbarlinksActive);
-
-    /**
-     * Mobile nav toggle
-     */
-    const mobileNavShow = document.querySelector(".mobile-nav-show");
-    const mobileNavHide = document.querySelector(".mobile-nav-hide");
-
-    document.querySelectorAll(".mobile-nav-toggle").forEach((el) => {
-      el.addEventListener("click", function (event) {
-        event.preventDefault();
-        mobileNavToogle();
-      });
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
     });
-
-    function mobileNavToogle() {
-      document.querySelector("body").classList.toggle("mobile-nav-active");
-      mobileNavShow.classList.toggle("d-none");
-      mobileNavHide.classList.toggle("d-none");
-    }
-
-    /**
-     * Hide mobile nav on same-page/hash links
-     */
-    document.querySelectorAll("#navbar a").forEach((navbarlink) => {
-      if (!navbarlink.hash) return;
-
-      let section = document.querySelector(navbarlink.hash);
-      if (!section) return;
-
-      navbarlink.addEventListener("click", () => {
-        if (document.querySelector(".mobile-nav-active")) {
-          mobileNavToogle();
-        }
-      });
-    });
-
-    /**
-     * Toggle mobile nav dropdowns
-     */
-    const navDropdowns = document.querySelectorAll(".navbar .dropdown > a");
-
-    navDropdowns.forEach((el) => {
-      el.addEventListener("click", function (event) {
-        if (document.querySelector(".mobile-nav-active")) {
-          event.preventDefault();
-          this.classList.toggle("active");
-          this.nextElementSibling.classList.toggle("dropdown-active");
-
-          let dropDownIndicator = this.querySelector(".dropdown-indicator");
-          dropDownIndicator.classList.toggle("bi-chevron-up");
-          dropDownIndicator.classList.toggle("bi-chevron-down");
-        }
-      });
-    });
-
-    /**
-     * Initiate glightbox
-     */
-    // const glightbox = GLightbox({
-    //   selector: ".glightbox",
-    // });
-
-    /**
-     * Scroll top button
-     */
-    const scrollTop = document.querySelector(".scroll-top");
-    if (scrollTop) {
-      const togglescrollTop = function () {
-        window.scrollY > 100
-          ? scrollTop.classList.add("active")
-          : scrollTop.classList.remove("active");
-      };
-      window.addEventListener("load", togglescrollTop);
-      document.addEventListener("scroll", togglescrollTop);
-      scrollTop.addEventListener(
-        "click",
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        })
-      );
-    }
-
-    /**
-     * Initiate Pure Counter
-     */
-    // new PureCounter();
-
-    /**
-     * Clients Slider
-     */
-    // new Swiper(".clients-slider", {
-    //   speed: 400,
-    //   loop: true,
-    //   autoplay: {
-    //     delay: 5000,
-    //     disableOnInteraction: false,
-    //   },
-    //   slidesPerView: "auto",
-    //   pagination: {
-    //     el: ".swiper-pagination",
-    //     type: "bullets",
-    //     clickable: true,
-    //   },
-    //   breakpoints: {
-    //     320: {
-    //       slidesPerView: 2,
-    //       spaceBetween: 40,
-    //     },
-    //     480: {
-    //       slidesPerView: 3,
-    //       spaceBetween: 60,
-    //     },
-    //     640: {
-    //       slidesPerView: 4,
-    //       spaceBetween: 80,
-    //     },
-    //     992: {
-    //       slidesPerView: 6,
-    //       spaceBetween: 120,
-    //     },
-    //   },
-    // });
-
-    /**
-     * Init swiper slider with 1 slide at once in desktop view
-     */
-    // new Swiper(".slides-1", {
-    //   speed: 600,
-    //   loop: true,
-    //   autoplay: {
-    //     delay: 5000,
-    //     disableOnInteraction: false,
-    //   },
-    //   slidesPerView: "auto",
-    //   pagination: {
-    //     el: ".swiper-pagination",
-    //     type: "bullets",
-    //     clickable: true,
-    //   },
-    //   navigation: {
-    //     nextEl: ".swiper-button-next",
-    //     prevEl: ".swiper-button-prev",
-    //   },
-    // });
-
-    /**
-     * Init swiper slider with 3 slides at once in desktop view
-     */
-    // new Swiper(".slides-3", {
-    //   speed: 600,
-    //   loop: true,
-    //   autoplay: {
-    //     delay: 5000,
-    //     disableOnInteraction: false,
-    //   },
-    //   slidesPerView: "auto",
-    //   pagination: {
-    //     el: ".swiper-pagination",
-    //     type: "bullets",
-    //     clickable: true,
-    //   },
-    //   navigation: {
-    //     nextEl: ".swiper-button-next",
-    //     prevEl: ".swiper-button-prev",
-    //   },
-    //   breakpoints: {
-    //     320: {
-    //       slidesPerView: 1,
-    //       spaceBetween: 40,
-    //     },
-
-    //     1200: {
-    //       slidesPerView: 3,
-    //     },
-    //   },
-    // });
-
-    /**
-     * Porfolio isotope and filter
-     */
-    // let portfolionIsotope = document.querySelector(".portfolio-isotope");
-
-    // if (portfolionIsotope) {
-    //   let portfolioFilter = portfolionIsotope.getAttribute(
-    //     "data-portfolio-filter"
-    //   )
-    //     ? portfolionIsotope.getAttribute("data-portfolio-filter")
-    //     : "*";
-    //   let portfolioLayout = portfolionIsotope.getAttribute(
-    //     "data-portfolio-layout"
-    //   )
-    //     ? portfolionIsotope.getAttribute("data-portfolio-layout")
-    //     : "masonry";
-    //   let portfolioSort = portfolionIsotope.getAttribute("data-portfolio-sort")
-    //     ? portfolionIsotope.getAttribute("data-portfolio-sort")
-    //     : "original-order";
-
-    //   window.addEventListener("load", () => {
-    //     let portfolioIsotope = new Isotope(
-    //       document.querySelector(".portfolio-container"),
-    //       {
-    //         itemSelector: ".portfolio-item",
-    //         layoutMode: portfolioLayout,
-    //         filter: portfolioFilter,
-    //         sortBy: portfolioSort,
-    //       }
-    //     );
-
-    //     let menuFilters = document.querySelectorAll(
-    //       ".portfolio-isotope .portfolio-flters li"
-    //     );
-    //     menuFilters.forEach(function (el) {
-    //       el.addEventListener(
-    //         "click",
-    //         function () {
-    //           document
-    //             .querySelector(
-    //               ".portfolio-isotope .portfolio-flters .filter-active"
-    //             )
-    //             .classList.remove("filter-active");
-    //           this.classList.add("filter-active");
-    //           portfolioIsotope.arrange({
-    //             filter: this.getAttribute("data-filter"),
-    //           });
-    //           if (typeof aos_init === "function") {
-    //             aos_init();
-    //           }
-    //         },
-    //         false
-    //       );
-    //     });
-    //   });
-    // }
-
-    /**
-     * Animation on scroll function and init
-     */
-    // function aos_init() {
-    //   AOS.init({
-    //     duration: 1000,
-    //     easing: "ease-in-out",
-    //     once: true,
-    //     mirror: false,
-    //   });
-    // }
-    // window.addEventListener("load", () => {
-    //   aos_init();
-    // });
-  });
+  }, []);
   return (
     <div>
-      <footer id="footer" className="footer">
-        <div className="container">
-          <div className="row gy-4">
-            <div className="col-lg-5 col-md-12 footer-info">
-              <a href="index.html" className="logo d-flex align-items-center">
-                <span>ZenX</span>
+      {/* Start Header */}
+      <section id="topbar" className="topbar d-flex align-items-center">
+        <div className="container d-flex justify-content-center justify-content-md-between">
+          <div className="contact-info d-flex align-items-center">
+            <i className="bi bi-envelope d-flex align-items-center">
+              <a href="mailto:contact@example.com">
+                contact@thecodestructure.com
               </a>
-              <p>
-                One stop place for cracking your dream job. We got you covered
-                with regular live classNamees, Mock interviews, Mentorship and
-                much more from instructors of top MNC's.
-              </p>
-              <div className="social-links d-flex mt-4">
-                <a href="#" className="twitter">
-                  <i className="bi bi-twitter"></i>
-                </a>
-                <a href="#" className="facebook">
-                  <i className="bi bi-facebook"></i>
-                </a>
-                <a href="#" className="instagram">
-                  <i className="bi bi-instagram"></i>
-                </a>
-                <a href="#" className="linkedin">
-                  <i className="bi bi-linkedin"></i>
+            </i>
+            <i className="bi bi-phone d-flex align-items-center ms-4">
+              <span>+91 8979713423</span>
+            </i>
+          </div>
+          <div className="social-links d-none d-md-flex align-items-center">
+            <a
+              href="https://www.instagram.com/thecodestructure/"
+              className="instagram"
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/codestructure"
+              className="linkedin"
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+          </div>
+        </div>
+      </section>
+      <header id="header" className="header d-flex align-items-center">
+        <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
+          <a href="index.html" className="logo d-flex align-items-center">
+            <img src="assets/img/logo.png" alt="" />
+            <h1>
+              CodeStructure<span>.</span>
+            </h1>
+          </a>
+          <nav id="navbar" className="navbar">
+            <ul>
+              <li>
+                <a href="#hero">Home</a>
+              </li>
+              <li>
+                <a href="#about">About</a>
+              </li>
+              <li>
+                <a href="#courses">Courses</a>
+              </li>
+              <li>
+                <a href="#faq">FAQ's</a>
+              </li>
+            </ul>
+          </nav>
+
+          <i className="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+          <i className="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        </div>
+      </header>
+      {/* End Header */}
+
+      {/* Start Hero Section */}
+      <section id="hero" className="hero">
+        <div className="container position-relative">
+          <div className="row gy-5" data-aos="fade-in">
+            <div className="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
+              <h2 className="mb-0">
+                Grab New <span>Skills.</span>
+              </h2>
+              <h2 className="mt-0">
+                Crack Your Dream <span>Job.</span>
+              </h2>
+              <p>Unlock your coding potential .</p>
+              <div className="d-flex justify-content-center justify-content-lg-start">
+                <a href="#courses" className="btn-get-started">
+                  Explore Our Courses
                 </a>
               </div>
             </div>
-            <div className="col-lg-2 col-6 footer-links">
-              <h4>Useful Links</h4>
-              <ul>
-                <li>
-                  <a href="#">Home</a>
-                </li>
-                <li>
-                  <a href="#">About us</a>
-                </li>
-                <li>
-                  <a href="#">Services</a>
-                </li>
-                <li>
-                  <a href="#">Terms of service</a>
-                </li>
-                <li>
-                  <a href="#">Privacy policy</a>
-                </li>
-              </ul>
+            <div className="col-lg-6 order-1 order-lg-2">
+              <img
+                src={HeroImg}
+                className="img-fluid"
+                alt=""
+                data-aos="zoom-out"
+                data-aos-delay="100"
+              />
             </div>
-            <div className="col-lg-1"></div>
+          </div>
+        </div>
+        <div className="icon-boxes position-relative">
+          <div className="container position-relative">
+            <div className="row gy-4 mt-5">
+              <div
+                className="col-xl-3 col-md-6"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                <div className="icon-box">
+                  <div className="icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-easel"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 0a.5.5 0 0 1 .473.337L9.046 2H14a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1.85l1.323 3.837a.5.5 0 1 1-.946.326L11.092 11H8.5v3a.5.5 0 0 1-1 0v-3H4.908l-1.435 4.163a.5.5 0 1 1-.946-.326L3.85 11H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h4.954L7.527.337A.5.5 0 0 1 8 0zM2 3v7h12V3H2z" />
+                    </svg>{" "}
+                  </div>
+                  <h4 className="title">
+                    <a href="" className="stretched-link">
+                      Live Lectures
+                    </a>
+                  </h4>
+                </div>
+              </div>
 
-            <div className="col-lg-3 col-6 footer-links">
-              <h4>Our Courses</h4>
-              <ul>
-                <li>
-                  <a href="#">Frontend Development</a>
-                </li>
-                <li>
-                  <a href="#">Backend Development</a>
-                </li>
-                <li>
-                  <a href="#">DSA with C++</a>
-                </li>
-                <li>
-                  <a href="#">Blockchain Development</a>
-                </li>
-                <li>
-                  <a href="#">Build Full Stack Projects</a>
-                </li>
-              </ul>
+              <div
+                className="col-xl-3 col-md-6"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div className="icon-box">
+                  <div className="icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-gem"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6l3-4zm11.386 3.785-1.806-2.41-.776 2.413 2.582-.003zm-3.633.004.961-2.989H4.186l.963 2.995 5.704-.006zM5.47 5.495 8 13.366l2.532-7.876-5.062.005zm-1.371-.999-.78-2.422-1.818 2.425 2.598-.003zM1.499 5.5l5.113 6.817-2.192-6.82L1.5 5.5zm7.889 6.817 5.123-6.83-2.928.002-2.195 6.828z" />
+                    </svg>{" "}
+                  </div>
+                  <h4 className="title">
+                    <a href="" className="stretched-link">
+                      Mock Interviews
+                    </a>
+                  </h4>
+                </div>
+              </div>
+
+              <div
+                className="col-xl-3 col-md-6"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <div className="icon-box">
+                  <div className="icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-geo-alt"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                      <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    </svg>{" "}
+                  </div>
+                  <h4 className="title">
+                    <a href="" className="stretched-link">
+                      Doubt Solving
+                    </a>
+                  </h4>
+                </div>
+              </div>
+
+              <div
+                className="col-xl-3 col-md-6"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <div className="icon-box">
+                  <div className="icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-command"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M3.5 2A1.5 1.5 0 0 1 5 3.5V5H3.5a1.5 1.5 0 1 1 0-3zM6 5V3.5A2.5 2.5 0 1 0 3.5 6H5v4H3.5A2.5 2.5 0 1 0 6 12.5V11h4v1.5a2.5 2.5 0 1 0 2.5-2.5H11V6h1.5A2.5 2.5 0 1 0 10 3.5V5H6zm4 1v4H6V6h4zm1-1V3.5A1.5 1.5 0 1 1 12.5 5H11zm0 6h1.5a1.5 1.5 0 1 1-1.5 1.5V11zm-6 0v1.5A1.5 1.5 0 1 1 3.5 11H5z" />
+                    </svg>{" "}
+                  </div>
+                  <h4 className="title">
+                    <a href="" className="stretched-link">
+                      Mentorship Sessions
+                    </a>
+                  </h4>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-              <h4>Contact Us</h4>
+      {/* End Hero Section */}
+
+      {/* Main Start */}
+      <main id="main">
+        <section id="about" className="about">
+          <div className="container" data-aos="fade-up">
+            <div className="section-header">
+              <h2>About Us</h2>
               <p>
-                <strong>Phone:</strong> +91 8979713423
-                <br />
-                <strong>Email:</strong> contact@zenxedu.com
-                <br />
+                One stop place for cracking your dream job. We got you covered
+                with regular live class, Mock interviews, Mentorship and much
+                more from instructors of top MNC's.
               </p>
             </div>
-          </div>
-        </div>
 
-        <div className="container mt-4">
-          <div className="copyright">
-            &copy; Copyright{" "}
-            <strong>
-              <span>ZenX</span>
-            </strong>
-            . All Rights Reserved
+            <div className="row gy-4">
+              <div className="col-lg-6">
+                <img
+                  src={HomeAboutUSImg}
+                  className="img-fluid rounded-4 mb-4"
+                  alt=""
+                />
+              </div>
+              <div className="col-lg-6">
+                <div className="content ps-0 ps-lg-5">
+                  <p className="fs-5">
+                    &nbsp; &nbsp; CodeStructure offers the best live training
+                    courses in the industry, in collaboration with industry
+                    professionals, for students of any background. Courses are
+                    designed to help students excel in all areas, including
+                    improving soft skills, technical/hard skills, and networking
+                    in the industry with recruiters and hiring managers in order
+                    to provide students with opportunities and a head start in
+                    their careers. <br />
+                    <br /> &nbsp; &nbsp;We offer courses on DSA with C++/JAVA,
+                    Frontend Development, Backend Development, Operating
+                    Systems, Database Management, OOPS and much more.
+                    CodeStructure provides all in one package to unlock your
+                    true potential.
+                  </p>
+                  {/* <ul>
+                    <li>
+                      <i className="bi bi-check-circle-fill"></i> Ullamco laboris
+                      nisi ut aliquip ex ea commodo consequat.
+                    </li>
+                    <li>
+                      <i className="bi bi-check-circle-fill"></i> Duis aute irure
+                      dolor in reprehenderit in voluptate velit.
+                    </li>
+                    <li>
+                      <i className="bi bi-check-circle-fill"></i> Ullamco laboris
+                      nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                      dolor in reprehenderit in voluptate trideta storacalaperda
+                      mastiro dolore eu fugiat nulla pariatur.
+                    </li>
+                  </ul> */}
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="credits"></div>
-        </div>
-      </footer>
+        </section>
+
+        {/* <section id="clients" className="clients">
+          <div className="container" data-aos="zoom-out">
+            <div className="clients-slider swiper">
+              <div className="swiper-wrapper align-items-center">
+                <div className="row">
+                  <Slider {...ClientSliderSettings} arrows={false}>
+                    <div>
+                      <div className="swiper-slide ">
+                        <img
+                          src={client1}
+                          classNameName="img-fluid clientSliderImg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="swiper-slide ">
+                        <img
+                          src={client2}
+                          classNameName="img-fluid clientSliderImg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="swiper-slide ">
+                        <img
+                          src={client3}
+                          classNameName="img-fluid clientSliderImg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <div className="swiper-slide ">
+                      <img
+                        src={client4}
+                        classNameName="img-fluid clientSliderImg"
+                        alt=""
+                      />
+                    </div>
+                    <div className="swiper-slide ">
+                      <img
+                        src={client5}
+                        classNameName="img-fluid clientSliderImg"
+                        alt=""
+                      />
+                    </div>
+                    <div className="swiper-slide ">
+                      <img
+                        src={client6}
+                        classNameName="img-fluid clientSliderImg"
+                        alt=""
+                      />
+                    </div>
+                    <div className="swiper-slide ">
+                      <img
+                        src={client7}
+                        classNameName="img-fluid clientSliderImg"
+                        alt=""
+                      />
+                    </div>
+                    <div className="swiper-slide ">
+                      <img
+                        src={client8}
+                        classNameName="img-fluid clientSliderImg"
+                        alt=""
+                      />
+                    </div>
+                  </Slider>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> */}
+
+        <section id="courses" className="services sections-bg">
+          <div className="container" data-aos="fade-up">
+            <div className="section-header">
+              <h2>Our Courses</h2>
+              {/* <p>
+                Aperiam dolorum et et wuia molestias qui eveniet numquam nihil
+                porro incidunt dolores placeat sunt id nobis omnis tiledo stran
+                delop
+              </p> */}
+            </div>
+
+            <div className="row gy-4" data-aos="fade-up" data-aos-delay="100">
+              <div className="col-lg-4 col-md-6">
+                <div className="service-item  position-relative">
+                  <div className="icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-activity"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z"
+                      />
+                    </svg>{" "}
+                  </div>
+                  <h3>Complete DSA in C++</h3>
+                  <p>
+                    Starting from teaching the C++ language to all the DSA
+                    concepts would be picked up to excel at problem solving.
+                  </p>
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdn2VQS4-jUZtp94QXkc7CUTA7T3EgFVxwGy7lacxWssd7Qjg/viewform"
+                    className="readmore stretched-link"
+                  >
+                    Enroll Now <i className="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div className="col-lg-4 col-md-6">
+                <div className="service-item position-relative">
+                  <div className="icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-broadcast"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 1 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
+                    </svg>{" "}
+                  </div>
+                  <h3>Complete DSA in JAVA</h3>
+                  <p>
+                    Starting from teaching the JAVA language to all the DSA
+                    concepts would be picked up to excel at problem solving.
+                  </p>
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdn2VQS4-jUZtp94QXkc7CUTA7T3EgFVxwGy7lacxWssd7Qjg/viewform"
+                    className="readmore stretched-link"
+                  >
+                    Enroll Now <i className="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div className="col-lg-4 col-md-6">
+                <div className="service-item position-relative">
+                  <div className="icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-easel"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 0a.5.5 0 0 1 .473.337L9.046 2H14a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1.85l1.323 3.837a.5.5 0 1 1-.946.326L11.092 11H8.5v3a.5.5 0 0 1-1 0v-3H4.908l-1.435 4.163a.5.5 0 1 1-.946-.326L3.85 11H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h4.954L7.527.337A.5.5 0 0 1 8 0zM2 3v7h12V3H2z" />
+                    </svg>{" "}
+                  </div>
+                  <h3>Frontend Development with ReactJS</h3>
+                  <p>
+                    Become a Pro frontend developer by learning all concepts
+                    from basic. All the way from HTML/CSS/JS and then moving to
+                    React. Also create amazing projects on the go.
+                  </p>
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdn2VQS4-jUZtp94QXkc7CUTA7T3EgFVxwGy7lacxWssd7Qjg/viewform"
+                    className="readmore stretched-link"
+                  >
+                    Enroll Now <i className="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div className="col-lg-4 col-md-6">
+                <div className="service-item position-relative">
+                  <div className="icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-bounding-box-circles"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM0 2a2 2 0 0 1 3.937-.5h8.126A2 2 0 1 1 14.5 3.937v8.126a2 2 0 1 1-2.437 2.437H3.937A2 2 0 1 1 1.5 12.063V3.937A2 2 0 0 1 0 2zm2.5 1.937v8.126c.703.18 1.256.734 1.437 1.437h8.126a2.004 2.004 0 0 1 1.437-1.437V3.937A2.004 2.004 0 0 1 12.063 2.5H3.937A2.004 2.004 0 0 1 2.5 3.937zM14 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM2 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                    </svg>{" "}
+                  </div>
+                  <h3>Backend Development with NodeJS</h3>
+                  <p>
+                    Become a Pro Backend developer by learning all concepts from
+                    basic. All the way from Javascript, ExpressJS, MongoDB,
+                    API’s, NodeJS. Also create amazing projects on the go.
+                  </p>
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdn2VQS4-jUZtp94QXkc7CUTA7T3EgFVxwGy7lacxWssd7Qjg/viewform"
+                    className="readmore stretched-link"
+                  >
+                    Enroll Now <i className="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              {/* <div className="col-lg-4 col-md-6">
+                <div className="service-item position-relative">
+                  <div className="icon">
+                    <i className="bi bi-calendar4-week"></i>
+                  </div>
+                  <h3>Build 5 Full Stack Web Projects for your Resume</h3>
+                  <p>
+                    Cumque et suscipit saepe. Est maiores autem enim facilis ut
+                    aut ipsam corporis aut. Sed animi at autem alias eius
+                    labore.
+                  </p>
+                  <a href="#" className="readmore stretched-link">
+                    Enroll Now <i className="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div className="col-lg-4 col-md-6">
+                <div className="service-item position-relative">
+                  <div className="icon">
+                    <i className="bi bi-chat-square-text"></i>
+                  </div>
+                  <h3>Become Open Source Developer</h3>
+                  <p>
+                    Hic molestias ea quibusdam eos. Fugiat enim doloremque aut
+                    neque non et debitis iure. Corrupti recusandae ducimus enim.
+                  </p>
+                  <a href="#" className="readmore stretched-link">
+                    Enroll Now <i className="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div> */}
+            </div>
+          </div>
+        </section>
+
+        {/* <section id="stats-counter" className="stats-counter">
+          <div className="container" data-aos="fade-up">
+            <div className="row gy-4 align-items-center">
+              <div className="col-lg-6">
+                <img src="assets/img/stats-img.svg" alt="" className="img-fluid" />
+              </div>
+
+              <div className="col-lg-6">
+                <div className="stats-item d-flex align-items-center">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="2310"
+                    data-purecounter-duration="1"
+                    className="purecounter"
+                  ></span>
+                  <p>
+                    <strong>Students enrolled</strong>
+                  </p>
+                </div>
+
+                <div className="stats-item d-flex align-items-center">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="24"
+                    data-purecounter-duration="1"
+                    className="purecounter"
+                  ></span>
+                  <p>
+                    <strong>Mentors</strong>
+                  </p>
+                </div>
+
+                <div className="stats-item d-flex align-items-center">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="20"
+                    data-purecounter-duration="1"
+                    className="purecounter"
+                  ></span>
+                  <p>
+                    <strong>Recruiters</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> */}
+
+        <section id="testimonials" className="testimonials">
+          <div className="container" data-aos="fade-up">
+            <div className="section-header">
+              <h2>Feedback of Students</h2>
+              {/* <p>
+                Voluptatem quibusdam ut ullam perferendis repellat non ut
+                consequuntur est eveniet deleniti fignissimos eos quam
+              </p> */}
+            </div>
+
+            <div
+              className="slides-3 swiper"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div className="swiper-wrapper">
+                <Slider {...FeedbackSliderSettings} arrows={false}>
+                  <div className="swiper-slide">
+                    <div className="testimonial-wrap">
+                      <div className="testimonial-item">
+                        <div className="d-flex align-items-center">
+                          <img
+                            src={testimonialimg1}
+                            className="testimonial-img flex-shrink-0"
+                            alt=""
+                          />
+                          <div>
+                            <h3>Karan</h3>
+                            <div className="stars">
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                            </div>
+                          </div>
+                        </div>
+                        <p>
+                          <i className="bi bi-quote quote-icon-left"></i>
+                          This course helped me a lot to understand Data
+                          structures and algorithms from basics to an advanced
+                          level. The course was well mentored and the content
+                          was very well presented. Thank you CodeStructure.
+                          <i className="bi bi-quote quote-icon-right"></i>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="swiper-slide">
+                    <div className="testimonial-wrap">
+                      <div className="testimonial-item">
+                        <div className="d-flex align-items-center">
+                          <img
+                            src={testimonialimg2}
+                            className="testimonial-img flex-shrink-0"
+                            alt=""
+                          />
+                          <div>
+                            <h3>Shivam</h3>
+                            <div className="stars">
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                            </div>
+                          </div>
+                        </div>
+                        <p>
+                          <i className="bi bi-quote quote-icon-left"></i>I took
+                          Frontend Development course and instructors are
+                          amazing. It’s was a very helpful course. I will surely
+                          recommend it to my friends and colleagues.
+                          <i className="bi bi-quote quote-icon-right"></i>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="swiper-slide">
+                    <div className="testimonial-wrap">
+                      <div className="testimonial-item">
+                        <div className="d-flex align-items-center">
+                          <img
+                            src={testimonialimg3}
+                            className="testimonial-img flex-shrink-0"
+                            alt=""
+                          />
+                          <div>
+                            <h3>Sai</h3>
+                            <div className="stars">
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                            </div>
+                          </div>
+                        </div>
+                        <p>
+                          <i className="bi bi-quote quote-icon-left"></i>
+                          Best in Industry course with Affordable prices. The
+                          instructors have worked in top MNC’s and have lots of
+                          industry experience. Surely would recommend this
+                          everyone.
+                          <i className="bi bi-quote quote-icon-right"></i>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="swiper-slide">
+                    <div className="testimonial-wrap">
+                      <div className="testimonial-item">
+                        <div className="d-flex align-items-center">
+                          <img
+                            src={testimonialimg4}
+                            className="testimonial-img flex-shrink-0"
+                            alt=""
+                          />
+                          <div>
+                            <h3>Sudeep</h3>
+                            <div className="stars">
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                            </div>
+                          </div>
+                        </div>
+                        <p>
+                          <i className="bi bi-quote quote-icon-left"></i>
+                          The tutors featured in the courses on various frontend
+                          subjects are extremely competent, and often from
+                          high-profile and prestigious companies. The courses
+                          are mostly structured pretty well, and the content
+                          tends to be of a professional standard and ready for
+                          production environments, which often isn’t the case
+                          with other sites I’ve used previously.
+                          <i className="bi bi-quote quote-icon-right"></i>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="swiper-slide">
+                    <div className="testimonial-wrap">
+                      <div className="testimonial-item">
+                        <div className="d-flex align-items-center">
+                          <img
+                            src={testimonialimg5}
+                            className="testimonial-img flex-shrink-0"
+                            alt=""
+                          />
+                          <div>
+                            <h3>Anshika</h3>
+                            <div className="stars">
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                              <FontAwesomeIcon icon={faStar} />
+                            </div>
+                          </div>
+                        </div>
+                        <p>
+                          <i className="bi bi-quote quote-icon-left"></i>I was
+                          able to develop my coding skills through this course.
+                          The training had industry oriented problems that
+                          required extremely sound logic, but the mentor took
+                          his time explaining every line of code and giving
+                          homework assignments similar to the training problems.
+                          Everyone should take this course, in my opinion.
+                          <i className="bi bi-quote quote-icon-right"></i>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </Slider>
+              </div>
+              <div className="swiper-pagination"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" className="faq">
+          <div className="container" data-aos="fade-up">
+            <div className="row gy-4">
+              <div className="col-lg-4">
+                <div className="content px-xl-5">
+                  <h3>
+                    Frequently Asked <strong>Questions</strong>
+                  </h3>
+                </div>
+              </div>
+
+              <div className="col-lg-8">
+                <Accordion>
+                  <Accordion.Item eventKey="0">
+                    <Accordion.Header>
+                      {" "}
+                      <span className="num">1.</span>
+                      Science Field or Tech Background. Am I eligible?{" "}
+                    </Accordion.Header>
+                    <Accordion.Body>
+                      Yes! All college students, graduates, and working
+                      professionals who are willing to put in the effort to
+                      break into the field of computer science, regardless of
+                      their degree, graduation percentage, or branch, are
+                      eligible for our course.{" "}
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey="1">
+                    <Accordion.Header>
+                      {" "}
+                      <span className="num">2.</span>
+                      Why is collaborative learning so important?
+                    </Accordion.Header>
+                    <Accordion.Body>
+                      Students often learn from each other, and a majority of
+                      learning in an organization is learning – or learning in
+                      the flow of work. It’s important to encourage and capture
+                      organization-wide collaboration for increased
+                      productivity, social learning, and cross-team
+                      communication.
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey="2">
+                    <Accordion.Header>
+                      {" "}
+                      <span className="num">3.</span>
+                      How many mocks, mentorship sessions & live doubt sessions
+                      will I get?
+                    </Accordion.Header>
+                    <Accordion.Body>
+                      You can take 15+ mentorship sessions, mock interviews &
+                      doubt-solving sessions in total. You can ask as many
+                      doubts as you want through our Live Chat Feature :)
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey="3">
+                    <Accordion.Header>
+                      {" "}
+                      <span className="num">4.</span>
+                      Are the sessions live or recorded?
+                    </Accordion.Header>
+                    <Accordion.Body>
+                      All the sessions are live online classNamees, which are
+                      held thrice a week. The schedule of sessions (days and
+                      timings) is shared with the students well in advance.
+                      However, if a student is unable to attend a session,
+                      recordings are also made available to all the students.
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey="4">
+                    <Accordion.Header>
+                      {" "}
+                      <span className="num">5.</span>
+                      Is there an installment option?
+                    </Accordion.Header>
+                    <Accordion.Body>
+                      You can request a call back and discuss about the process
+                      of installment fee process with our Academic Counselors.
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      {/* End Start */}
+
+      <Footer />
+
       <a
         href="#"
-        class="scroll-top d-flex align-items-center justify-content-center"
+        className="scroll-top d-flex align-items-center justify-content-center"
       >
-        <i class="bi bi-arrow-up-short"></i>
+        <i className="bi bi-arrow-up-short"></i>
       </a>
       {/* <div id="preloader"></div> */}
     </div>

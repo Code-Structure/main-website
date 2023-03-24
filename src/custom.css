@@ -1000,7 +1000,7 @@ section {
   position: relative;
 }
 
-.services .service-item .icon:before {
+/* .services .service-item .icon:before {
   position: absolute;
   content: "";
   height: 100%;
@@ -1011,7 +1011,7 @@ section {
   top: 10px;
   right: -20px;
   transition: 0.3s;
-}
+} */
 
 .services .service-item h3 {
   color: var(--color-default);
@@ -2725,4 +2725,13 @@ section {
 
 .footer .credits a {
   color: #008374;
+}
+
+.clientSliderImg {
+  width: 10% !important;
+  /* padding: 500px; */
+}
+
+.stars {
+  color: #ffa41c;
 }
