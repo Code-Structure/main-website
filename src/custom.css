@@ -2723,3 +2723,17 @@ section {
 .stars {
   color: #ffa41c;
 }
+
+.emailtext {
+  color: unset;
+}
+
+.emailtext:hover {
+  color: unset;
+}
+
+.slick-prev,
+.slick-next {
+  color: rgb(255, 255, 255);
+  background: rgb(0, 0, 0) !important;
+}

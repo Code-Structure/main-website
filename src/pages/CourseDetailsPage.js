@@ -33,10 +33,6 @@ function CourseDetailsPage() {
                 <h3>{data?.courseTitle}</h3>
                 <p>{data?.courseDescription}</p>
 
-                <h2> Course Includes</h2>
-                {data?.courseIncludes.map((ele) => (
-                  <p>{ele}</p>
-                ))}
                 <Accordion>
                   {courseContent
                     ? courseContent.map((ele) => (
@@ -56,6 +52,12 @@ function CourseDetailsPage() {
                       ))
                     : ""}{" "}
                 </Accordion>
+                <div className="">
+                  <h3> Course Includes</h3>
+                </div>
+                {data?.courseIncludes.map((ele) => (
+                  <p>{ele}</p>
+                ))}
               </div>
             </div>
             <div className="col-lg-4 col-md-6">

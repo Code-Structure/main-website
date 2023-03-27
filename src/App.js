@@ -6,12 +6,17 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./custom.css";
 import HomePage from "./pages/HomePage";
 import CourseDetailsPage from "./pages/CourseDetailsPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <HomePage />
-      {/* <CourseDetailsPage /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/CourseDetailsPage" element={<CourseDetailsPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

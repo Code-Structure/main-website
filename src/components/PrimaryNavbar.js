@@ -7,7 +7,7 @@ import {
   faLinkedin,
   faSpinner,
 } from "@fortawesome/free-brands-svg-icons";
-function PrimaryNavbar() {  
+function PrimaryNavbar() {
   return (
     <div>
       <section id="topbar" className="topbar d-flex align-items-center">
@@ -40,7 +40,7 @@ function PrimaryNavbar() {
       </section>
       <header id="header" className="header d-flex align-items-center">
         <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
-          <a href="index.html" className="logo d-flex align-items-center">
+          <a href="/" className="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="" />
             <h1>
               CodeStructure<span>.</span>

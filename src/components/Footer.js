@@ -5,7 +5,6 @@ import "./../custom.css";
 function Footer() {
   return (
     <div>
-     
       <footer id="footer" className="footer ">
         <div className="container ">
           <div className="row gy-4">
@@ -78,9 +77,16 @@ function Footer() {
             <div className="col-md-3 footer-contact text-center text-md-start">
               <h4>Contact Us</h4>
               <p>
-                <strong>Phone:</strong> +91 8979713423
+                <strong>Phone:</strong> +91 8979713423, +91 8800537665
                 <br />
-                <strong>Email:</strong> contact@thecodestructure.com
+                <strong>Email:</strong>{" "}
+                <a
+                  href="mailto:contact@thecodestructure.com"
+                  className="emailtext"
+                >
+                  {" "}
+                  contact@thecodestructure.com
+                </a>
                 <br />
               </p>
             </div>

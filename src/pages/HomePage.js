@@ -76,13 +76,12 @@ function HomePage() {
   };
   var FeedbackSliderSettings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
-    speed: 9000,
-    autoplaySpeed: 9000,
-    cssEase: "linear",
+    speed: 2000,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 1024,
@@ -633,7 +632,7 @@ function HomePage() {
                 data-aos-delay="100"
               >
                 <div className="swiper-wrapper">
-                  <Slider {...FeedbackSliderSettings} arrows={false}>
+                  <Slider {...FeedbackSliderSettings} arrows={true}>
                     <div className="swiper-slide">
                       <div className="testimonial-wrap">
                         <div className="testimonial-item">
