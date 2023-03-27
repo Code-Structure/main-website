@@ -1,0 +1,123 @@
+{
+  "courseTitle": "Frontend Developement with ReactJS",
+  "courseDescription": "Welcome to the Frontend Development course! In this course, you will learn the fundamental concepts of frontend web development using HTML, CSS, JavaScript, and React. HTML is the backbone of the web, and you will start by learning its syntax and semantics. You will then move on to CSS, where you will learn how to style your HTML pages with colors, fonts, and layouts. Next, you will dive into JavaScript, where you will learn the fundamentals of programming and how to create interactive web pages. Finally, you will learn about React, a popular JavaScript library used for building dynamic user interfaces. You will learn how to create reusable components, manage application state, and work with APIs. Throughout the course, you will complete a series of hands-on projects that will give you real-world experience building websites and web applications. You will also have the opportunity to collaborate with other students and receive feedback on your work. By the end of the course, you will have a strong foundation in frontend web development and be able to create dynamic, responsive, and engaging web pages and web applications using HTML, CSS, JavaScript, and React.",
+  "courseMRP": "11999",
+  "courseCurrentPrice": "5499",
+  "courseContent": [
+    {
+      "id": 1,
+      "mainTitle": "Introduction to Frontend",
+      "subTitles": [
+        "What is frontend and need of it?",
+        "Setting up the development environment",
+        "How does websites actually work?"
+      ]
+    },
+    {
+      "id": 2,
+      "mainTitle": "HTML - Tags and Attributes",
+      "subTitles": [
+        "Understanding Div/Span, Classes/IDs, Semantic Tags, Types of Input tags, typography tags, etc.",
+        "Paragraph Tags, Heading and Span"
+      ]
+    },
+    {
+      "id": 3,
+      "mainTitle": "Tables and Forms",
+      "subTitles": [
+        "Tables using Layouts",
+        "Introduction to HTML forms",
+        "Creating a Contact Form"
+      ]
+    },
+    {
+      "id": 4,
+      "mainTitle": "Introduction to CSS",
+      "subTitles": [
+        "Introduction to CSS",
+        "Inline, Internal and External CSS",
+        "CSS Specificity and CSS Combinators/Relations",
+        "Box modal and CSS position",
+        "CSS centering, CSS float, and clear",
+        "Pseudo class and display property",
+        "CSS typography"
+      ]
+    },
+    {
+      "id": 5,
+      "mainTitle": "Advance CSS",
+      "subTitles": ["Flex and Grid", "Media Query"]
+    },
+    {
+      "id": 6,
+      "mainTitle": "Introduction to Bootstrap",
+      "subTitles": [
+        "Bootstrap layouts like Cards, Carousels, etc.",
+        "GRID( VIMP), Carousel, typography",
+        "Bootstrap components and classes",
+        "Creating a project using Bootstrap",
+        "Media Query Breakpoints"
+      ]
+    },
+    {
+      "id": 7,
+      "mainTitle": "Introduction to Javascript",
+      "subTitles": [
+        "DOM, getElementById, innerHTML, innerText, changing attributes and styles",
+        "Popus, Ways to display output, declare, initialize variables, data types, typeof, conditions",
+        "Re-declaration using var keyword, ternary operator, Data types, Arithmetic operators, Relational operators - Identical Operator, Truthy and Falsy Values",
+        "JS Operators: Logical, Assignment and Bitwise, JS: Var, Let, Const, Block Scope, Global Scope, Gallery Project",
+        "Hoisting, Temporal Dead Zone, Loops, and Gallery Project, JavaScript: Hoisting, Temporal Dead Zone, Loops",
+        "Strings, String Methods, and examples, Calculator Code: Digits",
+        "Objects and Data Types",
+        "Array Methods - .filter, .map methods, JavaScript: lter, .reduce, ES6 Syntaxes, Non Primitive Data Type Assignment"
+      ]
+    },
+    {
+      "id": 8,
+      "mainTitle": "Intermediate Javascript",
+      "subTitles": [
+        "Error handling and throw keyword",
+        "Function methods - call, apply and bind, Intro to Asynchronous JS",
+        "SetTimeout, setInterval, Callback functions",
+        "Callback Hell, Promises Introduction",
+        "Pending, Resolve, Reject, .then, .catch, Promise Chaining, Promise.any, Promise.all",
+        "Call Stack, Task Queue, Event Loop, Validations, Async Await",
+        "Classes getters and setters, Inheritance, JS Validation"
+      ]
+    },
+    {
+      "id": 9,
+      "mainTitle": "Introduction to ReactJS",
+      "subTitles": [
+        "What is React and How to build React apps using 'create-react-app'",
+        "Folder Structure Components, Types, Features, Nested Components, Fragments",
+        "Nesting Components, Grouping Components, Re-using components, SASS, Props",
+        "Class and Function based Components",
+        "State, setState, One-way data-binding, Virtual DOM",
+        "Event Handling, setState asynchronous",
+        "React Rendering Loops, key, React Lifecycle Theory"
+      ]
+    },
+    {
+      "id": 10,
+      "mainTitle": "Intermediate ReactJS",
+      "subTitles": [
+        "Introduction to react-bootstrap",
+        "Mounting Life Cycle and componentDidMount",
+        "Unmounting Life Cycle",
+        "Hooks - useEffect React: Lifting the State Up, Forms - Controlled Component",
+        "Intro to React Router, working with APIs using axios, Routes, Links, SPA, useParams",
+        "Dynamic Routes using Params, creating Links using dynamic data, Fallback Route",
+        "Higher Order Function"
+      ]
+    }
+  ],
+  "courseIncludes": [
+    "100+ Hours of Live Sessions",
+    "10+ Projects",
+    "Certificate of Completion",
+    "50+ Coding Exercises"
+  ],
+  "paymentLink": "https://www.google.com"
+}
