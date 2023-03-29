@@ -152,6 +152,14 @@
   background-color: #5555d1db;
 }
 
-.accordion-item {
-  border: none;
+.link:hover {
+  color: unset;
+}
+.link {
+  color: unset;
+}
+
+
+.courseincludediv{
+  
 }
