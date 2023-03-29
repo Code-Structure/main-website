@@ -5,11 +5,10 @@ import "./../custom.css";
 function Footer() {
   return (
     <div>
-      {" "}
       <footer id="footer" className="footer ">
         <div className="container ">
           <div className="row gy-4">
-            <div className="col-lg-5 col-md-12 footer-info">
+            <div className="col-md-3 footer-info">
               <a href="index.html" className="logo d-flex align-items-center">
                 <span>CodeStructure.</span>
               </a>
@@ -33,7 +32,7 @@ function Footer() {
                 </a>
               </div>
             </div>
-            <div className="col-lg-2 col-6 footer-links">
+            <div className="col-md-3 footer-links">
               <h4>Useful Links</h4>
               <ul>
                 <li>
@@ -53,9 +52,8 @@ function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="col-lg-1"></div>
 
-            <div className="col-lg-3 col-6 footer-links">
+            <div className="col-md-3 footer-links">
               <h4>Our Courses</h4>
               <ul>
                 <li>
@@ -76,12 +74,19 @@ function Footer() {
               </ul>
             </div>
 
-            <div className="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <div className="col-md-3 footer-contact text-center text-md-start">
               <h4>Contact Us</h4>
               <p>
-                <strong>Phone:</strong> +91 8979713423
+                <strong>Phone:</strong> +91 8979713423, +91 8800537665
                 <br />
-                <strong>Email:</strong> contact@thecodestructure.com
+                <strong>Email:</strong>{" "}
+                <a
+                  href="mailto:contact@thecodestructure.com"
+                  className="emailtext"
+                >
+                  {" "}
+                  contact@thecodestructure.com
+                </a>
                 <br />
               </p>
             </div>
