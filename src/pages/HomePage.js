@@ -1,39 +1,25 @@
-import Slider from "react-slick";
-import { useEffect } from "react";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Aos from "aos";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import "aos/dist/aos.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
+import { Accordion } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import HomeAboutUSImg from "../assets/about.jpg";
 import HeroImg from "../assets/hero-img.svg";
-import client1 from "../assets/img/clients/client-1.png";
-import client2 from "../assets/img/clients/client-2.png";
-import client3 from "../assets/img/clients/client-3.png";
-import client4 from "../assets/img/clients/client-4.png";
-import client5 from "../assets/img/clients/client-5.png";
-import client6 from "../assets/img/clients/client-6.png";
-import client7 from "../assets/img/clients/client-7.png";
-import client8 from "../assets/img/clients/client-8.png";
 import testimonialimg1 from "../assets/img/testimonials/testimonials-1.jpg";
 import testimonialimg2 from "../assets/img/testimonials/testimonials-2.jpg";
 import testimonialimg3 from "../assets/img/testimonials/testimonials-3.jpg";
 import testimonialimg4 from "../assets/img/testimonials/testimonials-4.jpg";
 import testimonialimg5 from "../assets/img/testimonials/testimonials-5.jpg";
-import "../custom.css";
 import Footer from "../components/Footer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTwitter,
-  faFacebook,
-  faInstagram,
-  faLinkedin,
-  faSpinner,
-} from "@fortawesome/free-brands-svg-icons";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { Accordion } from "react-bootstrap";
 import PrimaryNavbar from "../components/PrimaryNavbar";
+import "../custom.css";
 
 function HomePage() {
   var ClientSliderSettings = {
@@ -120,11 +106,8 @@ function HomePage() {
   return (
     <div>
       <div>
-        {/* Start Header */}
         <PrimaryNavbar />
-        {/* End Header */}
 
-        {/* Start Hero Section */}
         <section id="hero" className="hero">
           <div className="container position-relative">
             <div className="row gy-5" data-aos="fade-in">
@@ -265,9 +248,6 @@ function HomePage() {
           </div>
         </section>
 
-        {/* End Hero Section */}
-
-        {/* Main Start */}
         <main id="main">
           <section id="about" className="about">
             <div className="container" data-aos="fade-up">
@@ -326,123 +306,44 @@ function HomePage() {
               </div>
             </div>
           </section>
-
-          {/* <section id="clients" className="clients">
-          <div className="container" data-aos="zoom-out">
-            <div className="clients-slider swiper">
-              <div className="swiper-wrapper align-items-center">
-                <div className="row">
-                  <Slider {...ClientSliderSettings} arrows={false}>
-                    <div>
-                      <div className="swiper-slide ">
-                        <img
-                          src={client1}
-                          classNameName="img-fluid clientSliderImg"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="swiper-slide ">
-                        <img
-                          src={client2}
-                          classNameName="img-fluid clientSliderImg"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="swiper-slide ">
-                        <img
-                          src={client3}
-                          classNameName="img-fluid clientSliderImg"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <div className="swiper-slide ">
-                      <img
-                        src={client4}
-                        classNameName="img-fluid clientSliderImg"
-                        alt=""
-                      />
-                    </div>
-                    <div className="swiper-slide ">
-                      <img
-                        src={client5}
-                        classNameName="img-fluid clientSliderImg"
-                        alt=""
-                      />
-                    </div>
-                    <div className="swiper-slide ">
-                      <img
-                        src={client6}
-                        classNameName="img-fluid clientSliderImg"
-                        alt=""
-                      />
-                    </div>
-                    <div className="swiper-slide ">
-                      <img
-                        src={client7}
-                        classNameName="img-fluid clientSliderImg"
-                        alt=""
-                      />
-                    </div>
-                    <div className="swiper-slide ">
-                      <img
-                        src={client8}
-                        classNameName="img-fluid clientSliderImg"
-                        alt=""
-                      />
-                    </div>
-                  </Slider>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
           <section id="courses" className="services sections-bg">
             <div className="container" data-aos="fade-up">
               <div className="section-header">
                 <h2>Our Courses</h2>
-                {/* <p>
-                Aperiam dolorum et et wuia molestias qui eveniet numquam nihil
-                porro incidunt dolores placeat sunt id nobis omnis tiledo stran
-                delop
-              </p> */}
               </div>
 
               <div className="row gy-4" data-aos="fade-up" data-aos-delay="100">
                 <div className="col-lg-4 col-md-6">
-                  <div className="service-item  position-relative">
-                    <div className="icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="50"
-                        height="50"
-                        fill="currentColor"
-                        class="bi bi-activity"
-                        viewBox="0 0 16 16"
+                  <a className="link">
+                    <div className="service-item  position-relative">
+                      <div className="icon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="50"
+                          height="50"
+                          fill="currentColor"
+                          class="bi bi-activity"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z"
+                          />
+                        </svg>{" "}
+                      </div>
+                      <h3>Complete DSA in C++</h3>
+                      <p>
+                        Starting from teaching the C++ language to all the DSA
+                        concepts would be picked up to excel at problem solving.
+                      </p>
+                      <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSdn2VQS4-jUZtp94QXkc7CUTA7T3EgFVxwGy7lacxWssd7Qjg/viewform"
+                        className="readmore stretched-link"
                       >
-                        <path
-                          fill-rule="evenodd"
-                          d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z"
-                        />
-                      </svg>{" "}
+                        Enroll Now <i className="bi bi-arrow-right"></i>
+                      </a>
                     </div>
-                    <h3>Complete DSA in C++</h3>
-                    <p>
-                      Starting from teaching the C++ language to all the DSA
-                      concepts would be picked up to excel at problem solving.
-                    </p>
-                    <a
-                      href="https://docs.google.com/forms/d/e/1FAIpQLSdn2VQS4-jUZtp94QXkc7CUTA7T3EgFVxwGy7lacxWssd7Qjg/viewform"
-                      className="readmore stretched-link"
-                    >
-                      Enroll Now <i className="bi bi-arrow-right"></i>
-                    </a>
-                  </div>
+                  </a>
                 </div>
 
                 <div className="col-lg-4 col-md-6">
@@ -531,91 +432,10 @@ function HomePage() {
                     </a>
                   </div>
                 </div>
-
-                {/* <div className="col-lg-4 col-md-6">
-                <div className="service-item position-relative">
-                  <div className="icon">
-                    <i className="bi bi-calendar4-week"></i>
-                  </div>
-                  <h3>Build 5 Full Stack Web Projects for your Resume</h3>
-                  <p>
-                    Cumque et suscipit saepe. Est maiores autem enim facilis ut
-                    aut ipsam corporis aut. Sed animi at autem alias eius
-                    labore.
-                  </p>
-                  <a href="#" className="readmore stretched-link">
-                    Enroll Now <i className="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6">
-                <div className="service-item position-relative">
-                  <div className="icon">
-                    <i className="bi bi-chat-square-text"></i>
-                  </div>
-                  <h3>Become Open Source Developer</h3>
-                  <p>
-                    Hic molestias ea quibusdam eos. Fugiat enim doloremque aut
-                    neque non et debitis iure. Corrupti recusandae ducimus enim.
-                  </p>
-                  <a href="#" className="readmore stretched-link">
-                    Enroll Now <i className="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div> */}
               </div>
             </div>
           </section>
-
-          {/* <section id="stats-counter" className="stats-counter">
-          <div className="container" data-aos="fade-up">
-            <div className="row gy-4 align-items-center">
-              <div className="col-lg-6">
-                <img src="assets/img/stats-img.svg" alt="" className="img-fluid" />
-              </div>
-
-              <div className="col-lg-6">
-                <div className="stats-item d-flex align-items-center">
-                  <span
-                    data-purecounter-start="0"
-                    data-purecounter-end="2310"
-                    data-purecounter-duration="1"
-                    className="purecounter"
-                  ></span>
-                  <p>
-                    <strong>Students enrolled</strong>
-                  </p>
-                </div>
-
-                <div className="stats-item d-flex align-items-center">
-                  <span
-                    data-purecounter-start="0"
-                    data-purecounter-end="24"
-                    data-purecounter-duration="1"
-                    className="purecounter"
-                  ></span>
-                  <p>
-                    <strong>Mentors</strong>
-                  </p>
-                </div>
-
-                <div className="stats-item d-flex align-items-center">
-                  <span
-                    data-purecounter-start="0"
-                    data-purecounter-end="20"
-                    data-purecounter-duration="1"
-                    className="purecounter"
-                  ></span>
-                  <p>
-                    <strong>Recruiters</strong>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
+          ī
           <section id="testimonials" className="testimonials">
             <div className="container" data-aos="fade-up">
               <div className="section-header">
@@ -803,7 +623,6 @@ function HomePage() {
               </div>
             </div>
           </section>
-
           <section id="faq" className="faq">
             <div className="container" data-aos="fade-up">
               <div className="row gy-4">
