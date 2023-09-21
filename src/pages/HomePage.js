@@ -593,7 +593,7 @@ function HomePage() {
                               alt=""
                             />
                             <div>
-                              <h3>Anshika</h3>
+                              <h3>Abhishek</h3>
                               <div className="stars">
                                 <FontAwesomeIcon icon={faStar} />
                                 <FontAwesomeIcon icon={faStar} />
